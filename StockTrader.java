@@ -9,26 +9,37 @@ public class StockTrader {
         String symbol = in.next();
         int n = in.nextInt();
 
-        int[] year = new int[n];
-        int[] month = new int[n];
-        double[] price = new double[n];
+        int[] years = new int[n];
+        int[] months = new int[n];
+        double[] prices = new double[n];
 
         loadData(in, years, months, prices);
+        printData (years, months, prices);
     }
 
     public static void loadData(
         Scanner in, int[] years, int[] months, double[] prices) { // for loading stuff from the file
         for (int i = 0; i < years.length; i++) {
-            year[i] = in.nextInt(); // grab and store the value into year
-            month[i] = in.nextInt();
-            price[i] = in.nextDouble();
+            years[i] = in.nextInt(); // grab and store the value into year, month, price, etc.
+            months[i] = in.nextInt();
+            prices[i] = in.nextDouble(); 
         }
-
-        public static String monthName(int month) {
-            String[] monthNames = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-            return monthName[month - 1];
-        }
-
-        public static void printData(int[] years, int[] months, double[] prices) {}
     }
+
+    public static String monthName(int months) {
+        String[] monthName = {
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        return monthName[months - 1];
+    }
+
+    public static void printData(int[] years, int[] months, double[] prices) {
+	  for (int i = 0; i < years.length; i++) {
+		System.out.println (monthName(months[i]) + " " + years[i] + ": $" + prices[i]);
+		}
+	}
+	
+public static int indexOfLowest(double[] prices) {
+	 
+	}
+	//public static int indexOfHighest(double[] prices) {}
 }
